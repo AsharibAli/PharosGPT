@@ -52,10 +52,9 @@ const PharosGPT = () => {
             >
               <button
                 onClick={openAccountModal}
-                className="fixed top-14 right-2 bg-black text-white p-3 rounded-full shadow-lg hover:scale-110 hover:bg-gray-800 transition-all duration-200"
+                className="fixed top-14 right-2 bg-[#0007b8] text-white p-3 rounded-full shadow-lg hover:scale-110 hover:bg-[#000591] transition-all duration-200"
                 title={account?.address || "Connect Wallet"}
               >
-                
                 <WalletIcon />
               </button>
             </div>
