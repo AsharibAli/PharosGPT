@@ -2,114 +2,144 @@
 
 ---
 
-1. **"Show me the latest transactions on PharosScan."**  
-   - Endpoint: `/account/txlist`  
+### **General Queries**
 
-2. **"What are the latest blocks added to PharosScan?"**  
-   - Endpoint: `/block/getblockreward`  
+1. **"Show me the latest transactions on Pharos Network."**  
+   - Endpoint: `/main-page/transactions`
 
-3. **"Estimate when block [BLOCK_NUMBER] will be mined."**  
-   - Endpoint: `/block/getblockcountdown?blockno={BLOCK_NUMBER}`  
+2. **"What are the latest blocks added to the Pharos Network?"**  
+   - Endpoint: `/main-page/blocks`
 
-4. **"Find the block number mined at timestamp [TIMESTAMP]."**  
-   - Endpoint: `/block/getblocknobytime?timestamp={TIMESTAMP}`  
+3. **"Give me an overview of the blockchain’s current statistics."**  
+   - Endpoint: `/stats`
+
+4. **"What’s the current indexing status of the blockchain?"**  
+   - Endpoint: `/main-page/indexing-status`
+
+   5. **"Show me transaction trends over time."**  
+   - Endpoint: `/stats/charts/transactions`
+
+6. **"What’s the current market performance of the blockchain?"**  
+   - Endpoint: `/stats/charts/market`
 
 ---
 
-### **Transaction Queries**  
+### **Transaction Queries**
 
 1. **"Find details about transaction [TX_HASH]."**  
-   - Endpoint: `/transaction/getstatus?txhash={TX_HASH}`  
+   - Endpoint: `/transactions/{transaction_hash}`
 
-2. **"Check if transaction [TX_HASH] was successful."**  
-   - Endpoint: `/transaction/gettxreceiptstatus?txhash={TX_HASH}`  
+2. **"What token transfers are associated with transaction [TX_HASH]?"**  
+   - Endpoint: `/transactions/{transaction_hash}/token-transfers`
 
 3. **"What internal transactions occurred within transaction [TX_HASH]?"**  
-   - Endpoint: `/account/txlistinternal?txhash={TX_HASH}`  
+   - Endpoint: `/transactions/{transaction_hash}/internal-transactions`
 
-4. **"Show me the logs of transaction [TX_HASH]."**  
-   - Endpoint: `/logs/getLogs?address={TX_HASH}`  
+4. **"Give me a human-readable summary of transaction [TX_HASH]."**  
+   - Endpoint: `/transactions/{transaction_hash}/summary`
 
----
-
-### **Block Queries**  
-
-1. **"Fetch details about block [BLOCK_NUMBER]."**  
-   - Endpoint: `/block/getblockreward?blockno={BLOCK_NUMBER}`  
-
-2. **"Estimate when block [BLOCK_NUMBER] will be mined."**  
-   - Endpoint: `/block/getblockcountdown?blockno={BLOCK_NUMBER}`  
-
-3. **"Find the block number mined at timestamp [TIMESTAMP]."**  
-   - Endpoint: `/block/getblocknobytime?timestamp={TIMESTAMP}`  
+5. **"Show me the logs of transaction [TX_HASH]."**  
+   - Endpoint: `/transactions/{transaction_hash}/logs`
 
 ---
 
-### **Address Queries**  
+### **Block Queries**
 
-1. **"Get balance of address [ADDRESS_HASH]."**  
-   - Endpoint: `/account/balance?address={ADDRESS_HASH}&tag=latest`  
+1. **"Fetch details about block [BLOCK_NUMBER or HASH]."**  
+   - Endpoint: `/blocks/{block_number_or_hash}`
 
-2. **"Get balances for multiple addresses."**  
-   - Endpoint: `/account/balancemulti?address={ADDRESS_1},{ADDRESS_2},{ADDRESS_3}&tag=latest`  
+2. **"List all transactions in block [BLOCK_NUMBER or HASH]."**  
+   - Endpoint: `/blocks/{block_number_or_hash}/transactions`
 
-3. **"Show the transactions associated with address [ADDRESS_HASH]."**  
-   - Endpoint: `/account/txlist?address={ADDRESS_HASH}`  
-
-4. **"Show the internal transactions associated with address [ADDRESS_HASH]."**  
-   - Endpoint: `/account/txlistinternal?address={ADDRESS_HASH}`  
-
-5. **"Which blocks were validated by address [ADDRESS_HASH]?"**  
-   - Endpoint: `/account/getminedblocks?address={ADDRESS_HASH}`  
+3. **"What withdrawals were made in block [BLOCK_NUMBER or HASH]?"**  
+   - Endpoint: `/blocks/{block_number_or_hash}/withdrawals`
 
 ---
 
-### **Token Queries**  
+### **Address Queries**
 
-1. **"List all ERC-20 token transfers for address [ADDRESS_HASH]."**  
-   - Endpoint: `/account/tokentx?address={ADDRESS_HASH}`  
+1. **"Get details about address [ADDRESS_HASH]."**  
+   - Endpoint: `/addresses/{address_hash}`
 
-2. **"List all ERC-721 (NFT) token transfers for address [ADDRESS_HASH]."**  
-   - Endpoint: `/account/tokennfttx?address={ADDRESS_HASH}`  
+2. **"Show the token balances for address [ADDRESS_HASH]."**  
+   - Endpoint: `/addresses/{address_hash}/token-balances`
 
-3. **"List all ERC-1155 (Multi-Token Standard) transfers for address [ADDRESS_HASH]."**  
-   - Endpoint: `/account/token1155tx?address={ADDRESS_HASH}`  
+3. **"What transactions are associated with address [ADDRESS_HASH]?"**  
+   - Endpoint: `/addresses/{address_hash}/transactions`
 
----
+4. **"List the NFTs owned by address [ADDRESS_HASH]."**  
+   - Endpoint: `/addresses/{address_hash}/nft`
 
-### **Smart Contract Queries**  
+5. **"Show the coin balance history of address [ADDRESS_HASH]."**  
+   - Endpoint: `/addresses/{address_hash}/coin-balance-history`
 
-1. **"Get ABI for smart contract at address [CONTRACT_ADDRESS]."**  
-   - Endpoint: `/contract/getabi?address={CONTRACT_ADDRESS}`  
-
-2. **"Retrieve the Solidity source code of smart contract [CONTRACT_ADDRESS]."**  
-   - Endpoint: `/contract/getsourcecode?address={CONTRACT_ADDRESS}`  
-
-3. **"Find the creator and deployment transaction of smart contract [CONTRACT_ADDRESS]."**  
-   - Endpoint: `/contract/getcontractcreation?contractaddresses={CONTRACT_ADDRESS}`  
-
-4. **"Verify a smart contract's source code."**  
-   - Endpoint: `/contract/verifysourcecode`  
-
-5. **"Check the verification status of contract submission [GUID]."**  
-   - Endpoint: `/contract/checkverifystatus?guid={GUID}`  
+6. **"Which blocks were validated by address [ADDRESS_HASH]?"**  
+   - Endpoint: `/addresses/{address_hash}/blocks-validated`
 
 ---
 
-### **NFT Queries**  
+### **Token Queries**
 
-1. **"List all ERC-721 NFT transfers for address [ADDRESS_HASH]."**  
-   - Endpoint: `/account/tokennfttx?address={ADDRESS_HASH}`  
+1. **"List all tokens available on Pharos Network."**  
+   - Endpoint: `/tokens`
 
-2. **"List all ERC-1155 NFT transfers for address [ADDRESS_HASH]."**  
-   - Endpoint: `/account/token1155tx?address={ADDRESS_HASH}`  
+2. **"Get details about token [TOKEN_ADDRESS]."**  
+   - Endpoint: `/tokens/{address_hash}`
+
+3. **"Who are the holders of token [TOKEN_ADDRESS]?"**  
+   - Endpoint: `/tokens/{address_hash}/holders`
+
+4. **"Show the transfer history for token [TOKEN_ADDRESS]."**  
+   - Endpoint: `/tokens/{address_hash}/transfers`
 
 ---
 
-### **Additional Edge Cases**  
+### **Smart Contract Queries**
 
-1. **"Show me the execution status of transaction [TX_HASH]."**  
-   - Endpoint: `/transaction/getstatus?txhash={TX_HASH}`  
+1. **"List all verified smart contracts on the blockchain."**  
+   - Endpoint: `/smart-contracts`
 
-2. **"Check the receipt status of transaction [TX_HASH]."**  
-   - Endpoint: `/transaction/gettxreceiptstatus?txhash={TX_HASH}`  
+2. **"Show details of the smart contract at address [CONTRACT_ADDRESS]."**  
+   - Endpoint: `/smart-contracts/{address_hash}`
+
+3. **"What read methods are available for smart contract [CONTRACT_ADDRESS]?"**  
+   - Endpoint: `/smart-contracts/{address_hash}/methods-read`
+
+4. **"What write methods can I use on smart contract [CONTRACT_ADDRESS]?"**  
+   - Endpoint: `/smart-contracts/{address_hash}/methods-write`
+
+5. **"Execute the read method [METHOD_NAME] on smart contract [CONTRACT_ADDRESS]."**  
+   - Endpoint: `/smart-contracts/{address_hash}/query-read-method`
+
+---
+
+### **NFT Queries**
+
+1. **"Show me the details of NFT [ID] from token [TOKEN_ADDRESS]."**  
+   - Endpoint: `/tokens/{address_hash}/instances/{id}`
+
+2. **"List transfers for NFT [ID] of token [TOKEN_ADDRESS]."**  
+   - Endpoint: `/tokens/{address_hash}/instances/{id}/transfers`
+
+3. **"Who currently holds NFT [ID] of token [TOKEN_ADDRESS]?"**  
+   - Endpoint: `/tokens/{address_hash}/instances/{id}/holders`
+
+---
+
+### **Search Queries**
+
+1. **"Search the blockchain for [QUERY]."**  
+   - Endpoint: `/search`
+
+2. **"Redirect me to the detailed page for [QUERY]."**  
+   - Endpoint: `/search/check-redirect`
+
+---
+
+### **Additional Edge Cases**
+
+1. **"What’s the JSON-RPC URL for blockchain interactions?"**  
+   - Endpoint: `/config/json-rpc-url`
+
+2. **"Show me all withdrawal transactions on the blockchain."**  
+   - Endpoint: `/withdrawals`
