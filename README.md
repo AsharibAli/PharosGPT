@@ -57,7 +57,7 @@ PharosGPT is built with the OpenAI, LangChain, Flowise, Wallet Connect, and so m
 
 ### **=> How Everything is Connected? (Flowise Flow Chart)**
 
-![FlowiseAI Flow Chart](./public/PharosGPT-flow.png)
+![FlowiseAI Flow Chart](./public/pharosgpt-flow.png)
 
 - [Flowise GitHub Repository](https://github.com/flowiseai/flowise) - Backend service deployed on Render, programmatically integrated with the chatbot UI frontend on Vercel through REST APIs.
 - [FlowiseChatEmbed GitHub Repository](https://github.com/flowiseai/FlowiseChatEmbed) - Chatbot interface implementation, delivered through Content Delivery Network (CDN) for optimal performance.
