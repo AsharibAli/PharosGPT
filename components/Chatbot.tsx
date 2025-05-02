@@ -39,7 +39,7 @@ const Chatbot = () => {
                   title:
                     "🤖 PharosGPT - The First AI Blockchain Explorer for Pharos Network ✨",
                   welcomeMessage:
-                    "Welcome to PharosGPT! I'm here to help you analyze the complex blockchain data for community and developers on Pharos Network 👈",
+                    "Welcome to PharosGPT! I'm here to help you analyze the complex blockchain data for community and developers, live on Pharos Devnet 👈",
                   errorMessage:
                     "Unable to retrieve data from the server. Please try again later.",
                   backgroundColor: "#ffffff",
