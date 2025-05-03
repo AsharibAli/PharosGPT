@@ -67,7 +67,7 @@ PharosGPT is built with the OpenAI, LangChain, Flowise, Wallet Connect, and so m
 - [Live Application](https://pharosgpt.vercel.app/) - Try PharosGPT in action
 - [Assistant Training Prompts](./docs/prompt_engineering.md) - View the prompts used to train the AI assistant
 - [API Documentation](./docs/api_endpoints_overview.md) - Technical details about API endpoints and custom tools
-- [Example Queries](./docs/advance_user_queries.md) - See real-world examples of user queries and API mappings
+- [Example User Queries](./docs/user_queries.md) - See real-world examples of user queries and API mappings
 - [Custom Tools](./docs/custom_tools.md) - View the custom tools created to extract on-chain (real-time) data
 - [Question & Answer](./docs/question_answer.md) - View the questions & answers documentation
 
